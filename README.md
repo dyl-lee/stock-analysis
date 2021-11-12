@@ -5,11 +5,6 @@ Visual Basic script "yearValueAnalysis.vbs" was created to analyze performance o
 
 The name of the game is improving readability and decreasing the time it takes for code to run. 
 
-
-Get pictures of:
-* 2017 and 2018 with time and output included (4 pictures)
-
-
 ## yearValueAnalysis breakdown
 The dataset was presorted with stock tickers in alphabetical order with each stock ordered in increasing chronological order. We first set the stage for the analysis of the stocks by: 
 1. initializing several variables like yearValue, startTime, endTime, RowCount, 
@@ -30,7 +25,7 @@ After the outer loop completes all steps, the data stored in variables Ticker, t
 (insert png for 2017 and 2018 for original script)
 
 ## How did other Green energy stocks fare?
-
+Based on the output of the script, Steve's watchlist of green energy stocks grew in 2017 better than in 2018. This is consistent with events at the time, especially considering the volatile market of 2018 and the steady market decline starting in October 2018. 
 
 ## Refactoring 101
 In order to optimize the script run-time, the refactored code addressed a few features of the original script.
