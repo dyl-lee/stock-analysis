@@ -13,8 +13,57 @@ The dataset was presorted with stock tickers in alphabetical order with each sto
 4. starting the timer
 
 Then yearValueAnalysis script reads and stores total daily volume, starting and ending price into variables by using a nested For loop, first by looping through tickers as iterator i increments. The outer loop calls the ticker string and initializes the totalVolume to zero every time before stepping into the inner For loop.
+```
+`Sub yearValueAnalysis()
 
-`insert code with more detailed comment up until the second loop`
+Dim startTime As Single
+Dim endTime As Single
+
+yearValue = InputBox("What year would you like to run the analysis on?")
+
+    'inserted Timer function here to start after inputbox for year
+    startTime = Timer
+
+'Format output sheet on All Stocks Analysis worksheet
+    Worksheets("All Stocks Analysis").Activate
+    Cells(1, 1).Value = "All Stocks (" + yearValue + ")"
+    Cells(3, 1).Value = "Ticker"
+    Cells(3, 2).Value = "Total Daily Volume"
+    Cells(3, 3).Value = "Return"
+
+'Create array with 12 elements, i.e. all tickers
+    Dim tickers(11) As String
+        tickers(0) = "AY"
+        tickers(1) = "CSIQ"
+        tickers(2) = "DQ"
+        tickers(3) = "ENPH"
+        tickers(4) = "FSLR"
+        tickers(5) = "HASI"
+        tickers(6) = "JKS"
+        tickers(7) = "RUN"
+        tickers(8) = "SEDG"
+        tickers(9) = "SPWR"
+        tickers(10) = "TERP"
+        tickers(11) = "VSLR"
+    
+
+'Prepare analysis of tickers
+    'Initialize variables for starting price and ending price
+        Dim startingPrice As Single
+        Dim endingPrice As Single
+    'Activate data worksheet
+        Worksheets(yearValue).Activate
+    'Find number of rows to loop over
+        RowCount = Cells(Rows.Count, "A").End(xlUp).Row
+
+
+'Loop through the tickers
+    For i = 0 To 11
+    'hold tickers() array inside ticker
+            Ticker = tickers(i)
+        'To reset totalvolume to zero after completing each ticker
+            totalVolume = 0
+```
 
 The inner For loop uses iterator j to loop through all rows (all 3013 of them!) and interrogates each row with several If statements to determine the values for total volume, starting price and ending price. The For (j) loop concludes and i increments by 1 onto the next ticker. It is important to note here that this method fulfills the If statement by comparing the current column A string with Ticker = Tickers(i).
 
@@ -25,9 +74,9 @@ After the outer loop completes all steps, the data stored in variables Ticker, t
 (insert png for 2017 and 2018 for original script)
 
 ## How did other Green energy stocks fare?
-Based on the output of the script, Steve's watchlist of green energy stocks grew in 2017 better than in 2018. This is consistent with events at the time, especially considering the volatile market of 2018 and the steady market decline starting in October 2018. 
+Based on the output of the script, Steve's watchlist of green energy stocks grew in 2017 better than in 2018. This is consistent with events at the time, especially considering the volatile market performance in 2018 and the steady market decline starting in October 2018. 
 
-## Refactoring 101
+## Refactoring strategy for yearValueAnalysis
 In order to optimize the script run-time, the refactored code addressed a few features of the original script.
 
 1. For yearValueAnalysis the nested `For` loop is the biggest bottleneck to a quicker run-time. Specifically, the inner loop of If statements is run `12 tickers * 3013 rows` for a total of 36,156 times. If we adopt the strategy to loop through all rows once only, this will require a different tactic to store data into those output variables (totalVolume, startingPrices and endingPrices). We need a variable that labels or indexes every unique ticker which can also be used in place of an iterator for the various if statements.
@@ -49,5 +98,6 @@ Using variables stores data in memory and is faster to recall.
 
 # To what extent did refactoring help the original script?
 ## Pros 
+
 
 ## Cons
