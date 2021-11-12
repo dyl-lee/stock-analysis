@@ -74,12 +74,12 @@ After the outer loop completes all steps, the data stored in variables Ticker, t
 (insert png for 2017 and 2018 for original script)
 
 ## How did other Green energy stocks fare?
-Based on the output of the script, Steve's watchlist of green energy stocks grew in 2017 better than in 2018. This is consistent with events at the time, especially considering the volatile market performance in 2018 and the steady market decline starting in October 2018. 
+Based on the output of the script, Steve's watchlist of green energy stocks in general grew better in 2017 than in 2018. This is consistent with events at the time, especially considering the volatile market performance in 2018 and the steady market decline starting in October 2018. 
 
 ## Refactoring strategy for yearValueAnalysis
 In order to optimize the script run-time, the refactored code addressed a few features of the original script.
 
-1. For yearValueAnalysis the nested `For` loop is the biggest bottleneck to a quicker run-time. Specifically, the inner loop of If statements is run `12 tickers * 3013 rows` for a total of 36,156 times. If we adopt the strategy to loop through all rows once only, this will require a different tactic to store data into those output variables (totalVolume, startingPrices and endingPrices). We need a variable that labels or indexes every unique ticker which can also be used in place of an iterator for the various if statements.
+1. For yearValueAnalysis the nested `For` loop is the biggest bottleneck to a quicker run-time. Specifically, the inner loop of If statements is run `12 tickers * 3013 rows` for a total of 36,156 times. If we adopt to loop through all rows once only, this will require a different strategy to store data into those output variables (totalVolume, startingPrices and endingPrices) and it would require a more dynamic way of indexing every unique ticker instead of  which can also be used in place of an iterator for the various if statements.
 
 Introducing, power duo variable tickerIndex and arrays.
 Using variables stores data in memory and is faster to recall. 
