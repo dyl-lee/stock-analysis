@@ -141,7 +141,7 @@ In order to optimize the script run-time, the refactored code addressed a few fe
 
 In `yearValueAnalysis` the nested `For` loop is the biggest bottleneck to a quicker run-time. Specifically, the inner loop of If statements is run `12 tickers * 3012 rows` for a total of 36,144 times. If we loop through all rows once only, this will require a different strategy to store data into those output variables (`totalVolume`, `startingPrices` and `endingPrices`) and it would require a more dynamic way of indexing every unique ticker. Introducing, power duo variable `tickerIndex` and arrays. See below for the pseudocode.
 
-1. Retain the same until the line determining number of rows to loop over 
+1. Retain the same code until the line determining number of rows to loop over 
 2. Create variable `tickerIndex` and initialize it to 0
 3. Create three output arrays to store data from each ticker: total volumes, ticker starting prices and ticker ending prices
 4. Create a `For` loop to initialize `tickerVolumes` to 0
