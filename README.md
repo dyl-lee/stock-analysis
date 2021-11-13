@@ -128,11 +128,6 @@ The outer loop exits and the script edits cells in column B for some visual feed
 ![Original code results for 2018](Resources/VBA_Challenge_2018_Original.png)
 
 
-## Results of refactored script 
-![Refactored code results for 2017](Resources/VBA_Challenge_2017_Refactored.png)
-![Refactored code results for 2018](Resources/VBA_Challenge_2018_Refactored.png)
-
-
 ## How did other Green energy stocks fare?
 Based on the output of the script, Steve's watchlist of green energy stocks in general grew better in 2017 than in 2018. This is consistent with events of the time, especially considering the volatile market performance in 2018 and the steady market decline starting in October 2018. 
 
@@ -165,6 +160,10 @@ Next i
 By choosing to loop through the spreadsheet only once, refactoring has also decreased script run-time by
 1. avoiding excessive `worksheets().activate` per loop (original script switches worksheets 24 times!) 
 2. using variables (arrays in this case) to store data. Recalling stored data from memory is faster than activating worksheets, looping then printing. 
+
+## Results of refactored script 
+![Refactored code results for 2017](Resources/VBA_Challenge_2017_Refactored.png)
+![Refactored code results for 2018](Resources/VBA_Challenge_2018_Refactored.png)
 
 # Why refactor at all? 
 First attempts at scripting/coding are often inefficient. Refactoring is an opportunity to achieve faster run-times, simpler logic-flow, more robust/stable code, fixing code smells, improving readability. These are a few reasons to consider refactoring code. As with this refactor attempt, script run-time was decimated while it was able to return the same output as the original script. 
