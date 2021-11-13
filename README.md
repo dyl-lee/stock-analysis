@@ -10,7 +10,7 @@ The dataset was presorted with stock tickers in alphabetical order with each sto
 3. initializing tickers() array to hold stock tickers.
 4. starting the timer
 
-Then `yearValueAnalysis` determines and stores total daily volume, starting and ending price into variables by using a nested `For` loop. The first `For` loop cycles through each ticker as iterator `i` increments. The outer loop  the ticker string and initializes the `totalVolume` to zero every time before stepping into the inner `For` loop.
+Then `yearValueAnalysis` determines and stores total daily volume, starting and ending price into variables by using a nested `For` loop. The outer `For` loop cycles through each ticker as iterator `i` increments. This outer loop also initializes the `totalVolume` to zero every time before stepping into the inner `For` loop.
 ```
 Sub yearValueAnalysis()
 
@@ -140,7 +140,7 @@ In `yearValueAnalysis` the nested `For` loop is the biggest bottleneck to a quic
 2. Create variable `tickerIndex` and initialize it to 0
 3. Create three output arrays to store data from each ticker: total volumes, ticker starting prices and ticker ending prices
 4. Create a `For` loop to initialize `tickerVolumes` to 0
-5. Create another `For` loop to loop over all rows in the spreadsheet. For every increment of `i`, interrogate the Ticker column with decision statements similar to the original script to determine ticker volumes, starting and ending prices except using tickerIndex. This allows the use of `i` to iterate over rows, while `tickerIndex` is used to store values into the output arrays and participate in decision statements. Because we want to loop through the worksheet only once, we also need `tickerIndex` to increase before the next ticker (i.e. before `i` increments), therefore the additional line to increase `tickerIndex` by 1 if the cell in the first column matches `tickers(tickerIndex)` and if the next row does not match `tickers(tickerIndex)`. This means `tickerIndex` increases 12 times in one loop, storing data for each unique ticker. 
+5. Create another `For` loop with iterator `i` to loop over all rows in the spreadsheet. For every increment of `i`, interrogate the Ticker column with decision statements similar to the original script to determine ticker volumes, starting and ending prices except using tickerIndex. The use of independent iterators allows the use of `i` to iterate over rows, while `tickerIndex` is used to store values into the output arrays and participate in decision statements. Because we want to loop through the worksheet only once, we also need `tickerIndex` to increase before the next unique ticker is encountered, therefore an additional line was added to increase `tickerIndex` by 1 if the following conditions are satisfied: 1) the cell in the first column matches `tickers(tickerIndex)` and 2) if the next row does not match `tickers(tickerIndex)`. This means `tickerIndex` increases 12 times in one loop, storing data for each unique ticker. 
 ```
 For i = 2 To RowCount
     tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value        
