@@ -1,4 +1,4 @@
-# stock-analysis
+# Using VBA for stock analysis
 
 ## Overview
 Visual Basic script "yearValueAnalysis.vbs" was created to analyze performance of 12 Green energy stocks in 2017 and 2018. The original script was refactored in order to decrease the time it took to complete the macro with the intention of, eventually, applying this to a much greater number of stocks.
