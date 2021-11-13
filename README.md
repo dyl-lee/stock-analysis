@@ -29,14 +29,13 @@ Based on the output of the script, Steve's watchlist of green energy stocks in g
 ## Refactoring strategy for yearValueAnalysis
 In order to optimize the script run-time, the refactored code addressed a few features of the original script.
 
-In `yearValueAnalysis` the nested `For` loop is the biggest bottleneck to a quicker run-time. Specifically, the inner loop of If statements is run `12 tickers * 3013 rows` for a total of 36,156 times. If we loop through all rows once only, this will require a different strategy to store data into those output variables (totalVolume, startingPrices and endingPrices) and it would require a more dynamic way of indexing every unique ticker. Introducing, power duo variable tickerIndex and arrays. See below for the pseudocode.
+In `yearValueAnalysis` the nested `For` loop is the biggest bottleneck to a quicker run-time. Specifically, the inner loop of If statements is run `12 tickers * 3012 rows` for a total of 36,144 times. If we loop through all rows once only, this will require a different strategy to store data into those output variables (totalVolume, startingPrices and endingPrices) and it would require a more dynamic way of indexing every unique ticker. Introducing, power duo variable tickerIndex and arrays. See below for the pseudocode.
 
 1. Retain the same until the line determining number of rows to loop over 
 2. Create variable tickerIndex and initialize it to 0
 3. Create three output arrays to store data from each ticker: total volumes, ticker starting prices and ticker ending prices
 4. Create a for loop to initialize tickerVolumes to 0
 5. Create another for loop to loop over all rows in the spreadsheet. For every increment of i, interrogate the Ticker column with decision statements similar to the original script to determine ticker volumes, starting and ending prices except using tickerIndex. This allows the use of i to iterate over rows, while tickerIndex is used to store values into the output arrays and participate in decision statements. Because we want to loop through the worksheet only once, we also need tickerIndex to increase before the next ticker (i.e. before i increments), therefore the additional line to increase tickerIndex by 1 if the cell in the first column matches tickers(tickerIndex) and if the next row does not match tickers(tickerIndex). This means tickerIndex increases 12 times in one loop, storing data for each unique ticker. 
-6. create another loop  
 ```
 For i = 2 To RowCount
     tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value        
@@ -51,10 +50,11 @@ For i = 2 To RowCount
     End If
 Next i
 ```
+6. Activate the output worksheet and create another loop to print values stored in the output arrays as tickerIndex increases. 
 
-1. Using variables to store data in memory is faster to recall. `yearValueAnalysis` script activates worksheets twice on each increment of the outer loop for a total of 24 times (12 tickers * 2 activates) 
-2. Does taking out the nested loop make it quicker? I think both sets of code includes 11x3013 for the original vs 1x3013 
-3. 
+By choosing to loop through the spreadsheet only once, refactoring has also decreased script run-time by
+1. avoiding excessive worksheets().activate per loop (original script switches worksheets 24 times!) 
+2. using variables to store data. Recalling stored data from memory is faster than activating worksheets, looping then printing. 
 
 # Why refactor at all? 
 ## Pros
@@ -68,8 +68,8 @@ Next i
 
 # To what extent did refactoring help the original script?
 ## Pros 
-1. Decimated the runtime
+1. Decimated the runtime while returning the same output as the original script
 2. 
 
 ## Cons
-1. 
+1. For a dataset of this size, refactoring doesn't seem worth it. A more comprehensive test will be on much larger dataset. 
