@@ -123,18 +123,15 @@ End Sub
 
 The outer loop exits and the script edits cells in column B for some visual feedback and number formatting. Finally, a `msgBox` prints the amount of time it took to run the macro. 
 
-<details>
-    <summary> Results of original script </summary>
-    ![VBA_Challenge_2017_Original](https://user-images.githubusercontent.com/90335218/141607027-b34d8b81-7deb-4985-a2e9-82f9b59f8bbc.png)
-    ![VBA_Challenge_2018_Original](https://user-images.githubusercontent.com/90335218/141607028-3a784dc8-35de-4180-b821-8a6e179b5073.png)
-</details>
+## Results of original script 
+    ![Original code results for 2017](Resources/VBA_Challenge_2017_Original.png)
+    ![Original code results for 2018](Resources/VBA_Challenge_2018_Original.png)
 
-<details>
-    <summary> Results of refactored script </summary>
-    ![VBA_Challenge_2017_Refactored](https://user-images.githubusercontent.com/90335218/141607037-66f338d5-5a03-4b5e-af35-a23aacce6362.png)
-    ![VBA_Challenge_2018_Refactored](https://user-images.githubusercontent.com/90335218/141607038-6c9e4280-b643-40e3-b778-ffae569d997b.png)
 
-</details>
+## Results of refactored script 
+    ![Refactored code results for 2017](Resources/VBA_Challenge_2017_Refactored.png)
+    ![Refactored code results for 2018](Resources/VBA_Challenge_2018_Refactored.png)
+
 
 ## How did other Green energy stocks fare?
 Based on the output of the script, Steve's watchlist of green energy stocks in general grew better in 2017 than in 2018. This is consistent with events of the time, especially considering the volatile market performance in 2018 and the steady market decline starting in October 2018. 
