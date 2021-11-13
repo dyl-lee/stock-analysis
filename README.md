@@ -10,7 +10,7 @@ The dataset was presorted with stock tickers in alphabetical order with each sto
 3. initializing tickers() array to hold stock tickers.
 4. starting the timer
 
-Then `yearValueAnalysis` script reads and stores total daily volume, starting and ending price into variables by using a nested For loop. The first `For` loop cycles through each ticker as iterator `i` increments. The outer loop  the ticker string and initializes the `totalVolume` to zero every time before stepping into the inner `For` loop.
+Then `yearValueAnalysis` determines and stores total daily volume, starting and ending price into variables by using a nested `For` loop. The first `For` loop cycles through each ticker as iterator `i` increments. The outer loop  the ticker string and initializes the `totalVolume` to zero every time before stepping into the inner `For` loop.
 ```
 Sub yearValueAnalysis()
 
@@ -62,7 +62,7 @@ yearValue = InputBox("What year would you like to run the analysis on?")
         totalVolume = 0
 ```
 
-The inner `For` loop uses iterator `j` to loop through all rows (all 3013 of them!) and interrogates each row with several If statements to determine the values for total volume, starting price and ending price and store them into variables. The For (j) loop concludes and the data for the current ticker is listed by calling the variables before `i` increments by 1 onto the next ticker. It is important to note here that this method fulfills the If statement by comparing the current column A string with `Ticker = Tickers(i)`.
+The inner `For` loop uses iterator `j` to loop through all rows (all 3013 of them!) and interrogates each row with several If statements to determine the values for total volume, starting price and ending price and store them into variables. The inner `For` loop concludes and the data for the current ticker is listed by calling the variables before `i` increments by 1 onto the next ticker. It is important to note here that this method fulfills the If statement by comparing the current column A string with `Ticker = Tickers(i)`.
 
 ```
 'Loop through rows in data, from 2 to last row_index
