@@ -125,14 +125,15 @@ The outer loop exits and the script edits cells in column B for some visual feed
 
 <details>
     <summary> Results of original script </summary>
-    ![Original code results for 2017](Resources/VBA_Challenge_2017_Original.png)
-    ![Original code results for 2018](Resources/VBA_Challenge_2018_Original.png)
+    ![VBA_Challenge_2017_Original](https://user-images.githubusercontent.com/90335218/141607027-b34d8b81-7deb-4985-a2e9-82f9b59f8bbc.png)
+    ![VBA_Challenge_2018_Original](https://user-images.githubusercontent.com/90335218/141607028-3a784dc8-35de-4180-b821-8a6e179b5073.png)
 </details>
 
 <details>
     <summary> Results of refactored script </summary>
-    ![Refactored code results for 2017](Resources/VBA_Challenge_2017_Refactored.png)
-    ![Refactored code results for 2018](Resources/VBA_Challenge_2018_Refactored.png)
+    ![VBA_Challenge_2017_Refactored](https://user-images.githubusercontent.com/90335218/141607037-66f338d5-5a03-4b5e-af35-a23aacce6362.png)
+    ![VBA_Challenge_2018_Refactored](https://user-images.githubusercontent.com/90335218/141607038-6c9e4280-b643-40e3-b778-ffae569d997b.png)
+
 </details>
 
 ## How did other Green energy stocks fare?
