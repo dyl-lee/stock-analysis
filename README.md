@@ -54,22 +54,11 @@ Next i
 
 By choosing to loop through the spreadsheet only once, refactoring has also decreased script run-time by
 1. avoiding excessive worksheets().activate per loop (original script switches worksheets 24 times!) 
-2. using variables to store data. Recalling stored data from memory is faster than activating worksheets, looping then printing. 
+2. using variables (arrays in this case) to store data. Recalling stored data from memory is faster than activating worksheets, looping then printing. 
 
 # Why refactor at all? 
-## Pros
-1. 
-2. Simpler logic-flow, results in more robust/stable code making it less prone to errors...
+First attempts at scripting/coding are often inefficient. Refactoring is an opportunity to achieve faster run-times, simpler logic-flow, more robust/stable code, fixing code smells, improving readability. These are a few reasons to consider refactoring code. As with this refactor attempt, script run-time was decimated while it was able to return the same output as the original script. 
 
-## Cons
-1. Is the time worth it? Think about the magnitude of the code we are editing, the original code took less than 2 seconds for completion which is hardly a hindrance. While the argument holds true for code much larger with much longer run-times, perhaps in cases like this one it's not worth it.
-2. ...but in the context of production with existing deadlines, there is a huge opportunity cost to refactoring. Time taken to plan, write, test and re-write refactored code is time not spent on other priorities.  
-3. Does the refactor allow for extension? How will it be able to increase the number of stocks this is applicable to?
+However, a valid question to ask could be: was the refactoring time worth it? The original code took less than 2 seconds for completion, which is hardly a hindrance. While the argument could hold true for much larger code with much longer run-times, it is perhaps not worth it for cases like this. Especially in the context of production with existing deadlines, there is a huge opportunity cost to refactoring. Time taken to plan, write, test and re-write refactored code is time not spent on other priorities.  
 
-# To what extent did refactoring help the original script?
-## Pros 
-1. Decimated the runtime while returning the same output as the original script
-2. 
 
-## Cons
-1. For a dataset of this size, refactoring doesn't seem worth it. A more comprehensive test will be on much larger dataset. 
