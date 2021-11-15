@@ -62,7 +62,7 @@ yearValue = InputBox("What year would you like to run the analysis on?")
         totalVolume = 0
 ```
 
-The inner `For` loop uses iterator `j` to loop through all rows (all 3013 of them!) and interrogates each row with several If statements to determine the values for total volume, starting price and ending price and store them into variables. The inner `For` loop concludes and the data for the current ticker is listed by calling the variables before `i` increments by 1 onto the next ticker. It is important to note here that this method fulfills the If statement by comparing the current column A string with `Ticker = Tickers(i)`.
+The inner `For` loop uses iterator `j` to loop through all rows (all 3012 of them!) and interrogates each row with several If statements to determine the values for total volume, starting price and ending price and store them into variables. The inner `For` loop concludes and the data for the current ticker is listed by calling the variables before `i` increments by 1 onto the next ticker. It is important to note here that this method fulfills the If statement by comparing the current column A string with `Ticker = Tickers(i)`.
 
 ```
 'Loop through rows in data, from 2 to last row_index
